@@ -55,27 +55,27 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testPow() {
+    public void toBinary() {
+    }
+
+    @Test
+    public void testGetPowResultAndCheck() {
         assertThat(this.calculator.pow(3, 3), is(27.0));
     }
 
     @Test
-    public void leftShift() {
+    public void testGetLeftShiftResultAndCheck() {
         assertThat(this.calculator.leftShift(1, 3), is(8));
     }
 
     @Test(expected = InvalidUseOfMatchersException.class)
-    public void rightShift() {
+    public void testThrowInvalidUseOfMatchersExceptionwhenRightShiftUseNegativeNumber() {
         doThrow(new InvalidUseOfMatchersException()).when(mockcalculator).rightShift(3, eq(-1));
         calculator.rightShift(3, -1);
     }
 
-    @Test
-    public void toBinary() {
-    }
-
     @Test(expected = NoSuchElementException.class)
-    public void toHexa() {
+    public void testThrowNoSuchElementExceptionwhenToHexaNumberToString() {
         doThrow(new NoSuchElementException()).when(mockcalculator).toHexa(15);
         mockcalculator.toHexa(15);
     }
