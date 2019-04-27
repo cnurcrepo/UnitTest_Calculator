@@ -6,7 +6,7 @@ public class Calculator {
     }
 
     public double sub(double a, double b) {
-        return 0;
+        return a - b;
     }
 
     public double mul(double a, double b) {
@@ -20,8 +20,10 @@ public class Calculator {
     }
 
     public double mod(double a, double b) {
-        return 0;
-
+        if(b == 0){
+            throw new IllegalArgumentException("IllegalArgumentExcpetion by zero");
+        }
+        return a % b;
     }
 
     public double pow(double a, double n) {
@@ -37,10 +39,15 @@ public class Calculator {
         return a >> n;
     }
 
-    //2진수 변환 / 16진수변환도 알아서 반환형 정해서 할것.
+    //2진수 변환
     public String toBinary(int integerDeca) {
-        String binary = null;
-        return binary;
+        StringBuilder sb = new StringBuilder();
+        for(int index = 31; index > -1; index--){
+            int mask = 1 << index;
+            int DecaToBinary = ((integerDeca & mask) != 0) ? 1 : 0;
+            sb.append(DecaToBinary);
+        }
+        return sb.toString();
     }
 
     public String toHexa(int integerDeca) {

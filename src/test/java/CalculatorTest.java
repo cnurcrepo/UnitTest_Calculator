@@ -39,7 +39,8 @@ public class CalculatorTest {
 
 
     @Test
-    public void sub() {
+    public void testSimpleSub() {
+        assertThat(calculator.sub(3, 5), is(-2.0));
     }
 
     @Test
@@ -50,12 +51,23 @@ public class CalculatorTest {
     public void div() {
     }
 
+    //mod 연산 test
     @Test
-    public void mod() {
+    public void testSimpleMod() {
+        assertThat(calculator.mod(77, 5), is(2.0));
     }
 
+    //0으로 나머지 연산을 했을 경우 예외처리 test
+    @Test(expected = IllegalArgumentException.class)
+    public void testSimpleModDoThrowIllegalArgumentExceptionWhenValueOfDivisorIsZero() {
+        calculator.mod(77, 0);
+    }
+
+    //10진수 2진수 변환 test
     @Test
-    public void toBinary() {
+    public void testDecaToBinary() {
+        int _integerDeca = 77;
+        assertThat(calculator.toBinary(_integerDeca), is("00000000000000000000000001001101"));
     }
 
     @Test
