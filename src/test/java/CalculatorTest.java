@@ -58,7 +58,7 @@ public class CalculatorTest {
     public void testSimpleMultiply() {
         assertThat(calculator.mul(3,5), is(15.0));
     }
-    
+
     @Test
     public void testToOctalPlusNumber() {
         assertThat(calculator.toOctal(90), is("132"));

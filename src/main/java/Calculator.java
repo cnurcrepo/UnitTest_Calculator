@@ -13,9 +13,13 @@ public class Calculator {
         return a * b;
     }
 
-    public double div(double a, double b) {
-        return 0;
-
+    public double div(double numerator, double denominator) {
+        if(denominator == 0){
+            throw new IllegalArgumentException();
+        }
+        else {
+            return numerator/denominator;
+        }
     }
 
     public double mod(double a, double b) {
