@@ -43,10 +43,6 @@ public class CalculatorTest {
     }
 
     @Test
-    public void mul() {
-    }
-
-    @Test
     public void div() {
     }
 
@@ -56,6 +52,11 @@ public class CalculatorTest {
 
     @Test
     public void toBinary() {
+    }
+
+    @Test
+    public void testSimpleMultiply() {
+        assertThat(calculator.mul(3,5), is(15.0));
     }
 
     @Test
