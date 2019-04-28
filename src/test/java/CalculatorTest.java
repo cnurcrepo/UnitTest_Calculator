@@ -58,6 +58,22 @@ public class CalculatorTest {
     public void testSimpleMultiply() {
         assertThat(calculator.mul(3,5), is(15.0));
     }
+    
+    @Test
+    public void testToOctalPlusNumber() {
+        assertThat(calculator.toOctal(90), is("132"));
+    }
+
+    @Test
+    public void testToOctalMinusNumber() {
+        assertThat(calculator.toOctal(-90), is("-132"));
+    }
+
+    @Test
+    public void testToOctalZero() {
+        assertThat(calculator.toOctal(0), is("0"));
+    }
+
 
     @Test
     public void testGetPowResultAndCheck() {
