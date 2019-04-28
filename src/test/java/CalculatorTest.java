@@ -43,18 +43,14 @@ public class CalculatorTest {
         assertThat(calculator.sub(3, 5), is(-2.0));
     }
 
-    @Test
-    public void mul() {
-    }
-
-    @Test
-    public void div() {
-    }
-
     //mod 연산 test
     @Test
     public void testSimpleMod() {
         assertThat(calculator.mod(77, 5), is(2.0));
+    }
+	
+    public void testSimpleMultiply() {
+        assertThat(calculator.mul(3,5), is(15.0));
     }
 
     //0으로 나머지 연산을 했을 경우 예외처리 test
@@ -68,6 +64,30 @@ public class CalculatorTest {
     public void testDecaToBinary() {
         int _integerDeca = 77;
         assertThat(calculator.toBinary(_integerDeca), is("00000000000000000000000001001101"));
+    }
+	
+    public void testToOctalPlusNumber() {
+        assertThat(calculator.toOctal(90), is("132"));
+    }
+
+    @Test
+    public void testToOctalMinusNumber() {
+        assertThat(calculator.toOctal(-90), is("-132"));
+    }
+
+    @Test
+    public void testToOctalZero() {
+        assertThat(calculator.toOctal(0), is("0"));
+    }
+
+    @Test
+    public void testSimpleDivide() {
+        assertThat(calculator.div(15,5), is(3.0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDivideByZero() {
+        assertThat(calculator.div(15,0), is(3.0));
     }
 
     @Test
