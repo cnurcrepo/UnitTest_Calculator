@@ -27,6 +27,26 @@ public class Calculator {
         return Math.pow(a, n);
     }
 
+    public String toOctal(int integerDeca) {
+
+        StringBuilder sb = new StringBuilder();
+
+        // 0 처리
+        if(integerDeca == 0){
+            return "0";
+        }
+
+        for (int loop = integerDeca; Math.abs(loop) > 0; loop /= 8){
+            sb.insert(0, Math.abs(loop % 8));
+        }
+
+        // 음수 처리
+        if(integerDeca < 0) sb.insert(0, "-");
+
+        return sb.toString();
+    }
+
+
     //Shift는 반환형 자신이 정해서 그것으로 테스트할것
     public int leftShift(int a, int n) {
         return a << n;
