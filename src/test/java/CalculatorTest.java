@@ -43,10 +43,6 @@ public class CalculatorTest {
     }
 
     @Test
-    public void div() {
-    }
-
-    @Test
     public void mod() {
     }
 
@@ -74,6 +70,15 @@ public class CalculatorTest {
         assertThat(calculator.toOctal(0), is("0"));
     }
 
+    @Test
+    public void testSimpleDivide() {
+        assertThat(calculator.div(15,5), is(3.0));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDivideByZero() {
+        assertThat(calculator.div(15,0), is(3.0));
+    }
 
     @Test
     public void testGetPowResultAndCheck() {
