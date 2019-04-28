@@ -10,9 +10,8 @@ public class Calculator {
     }
 
     public double mul(double a, double b) {
-        return 0;
+        return a * b;
     }
-
 
     public double div(double a, double b) {
         return 0;
