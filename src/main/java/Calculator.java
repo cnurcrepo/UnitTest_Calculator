@@ -10,13 +10,16 @@ public class Calculator {
     }
 
     public double mul(double a, double b) {
-        return 0;
+        return a * b;
     }
 
-
-    public double div(double a, double b) {
-        return 0;
-
+    public double div(double numerator, double denominator) {
+        if(denominator == 0){
+            throw new IllegalArgumentException();
+        }
+        else {
+            return numerator/denominator;
+        }
     }
 
     public double mod(double a, double b) {
@@ -27,6 +30,26 @@ public class Calculator {
     public double pow(double a, double n) {
         return Math.pow(a, n);
     }
+
+    public String toOctal(int integerDeca) {
+
+        StringBuilder sb = new StringBuilder();
+
+        // 0 처리
+        if(integerDeca == 0){
+            return "0";
+        }
+
+        for (int loop = integerDeca; Math.abs(loop) > 0; loop /= 8){
+            sb.insert(0, Math.abs(loop % 8));
+        }
+
+        // 음수 처리
+        if(integerDeca < 0) sb.insert(0, "-");
+
+        return sb.toString();
+    }
+
 
     //Shift는 반환형 자신이 정해서 그것으로 테스트할것
     public int leftShift(int a, int n) {
